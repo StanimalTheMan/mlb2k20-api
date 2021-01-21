@@ -2,7 +2,7 @@
   <v-app-bar app flat class="toolbar">
     <v-app-bar-title>
       <router-link to="/">
-        <h1>MLB2K19 API</h1>
+        <h1>MLB2K20API</h1>
       </router-link>
     </v-app-bar-title>
 
