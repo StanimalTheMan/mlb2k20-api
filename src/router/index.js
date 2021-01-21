@@ -1,29 +1,24 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+import Home from "../components/Home.vue";
+import BatterForm from "../components/mlbdata/BatterForm.vue";
+import PitcherForm from "../components/mlbdata/PitcherForm.vue";
+import BatterData from "../components/mlbdata/BatterData.vue";
+import PitcherData from "../components/mlbdata/PitcherData.vue";
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+Vue.use(VueRouter);
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+export const routes = [
+  { path: "/", name: "Home", component: Home },
+  { path: "/batting", name: "BatterForm", component: BatterForm },
+  { path: "/pitching", name: "PitcherForm", component: PitcherForm },
+  { path: "/batting/player*", name: "BatterData", component: BatterData },
+  { path: "/pitching/player*", name: "PitcherData", component: PitcherData },
+  { path: "*", redirect: "/" },
+];
 
-export default router
+export const router = new VueRouter({
+  mode: "history",
+  routes,
+});
